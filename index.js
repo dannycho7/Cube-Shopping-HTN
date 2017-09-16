@@ -18,7 +18,7 @@ app.use(express.static(path.join(__dirname, "static")));
 let Item = require("./db/Item");
 
 app.get("/", (req, res) => {
-	Item.findAll({}, (err, items) => {
+	Item.find({}, (err, items) => {
 		return res.render("index", { items });
 	});
 });
