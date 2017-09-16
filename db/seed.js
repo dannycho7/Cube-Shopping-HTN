@@ -5,20 +5,23 @@ mongoose.connect("mongodb://localhost/htn", { useMongoClient: true }, () => cons
 
 Item.create([
 {
-	name: "Shirt",
-	price: "1000",
-	description: "This is a shirt",
-	modelUrl: "..."
+	"name": "Shirt",
+	"price": 1000,
+	"description": "This is a shirt",
+	"modelUrl": "...",
+	"itemType": "t-shirt"
 },
 {
-	name: "Yeezys",
-	price: "100000",
-	description: "This is an overpriced shoe",
-	modelUrl: "..."
+	"name": "Yeezys",
+	"price": 100000,
+	"description": "This is an overpriced shoe",
+	"modelUrl": "...",
+	"itemType": "t-shirt"
 },
 {
-	name: "Pants",
-	price: "2500",
-	description: "This is pants",
-	modelUrl: "...."
+	"name": "Pants",
+	"price": 2500,
+	"description": "This is pants",
+	"modelUrl": "....",
+	"itemType": "pants"
 }], () => console.log("Created an item"));	
