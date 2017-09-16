@@ -10,9 +10,18 @@ mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://localhost/htn", { useMongoClient: true })
 .then(() => console.log("Mongodb connection established"));
 
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+
 app.use(express.static(path.join(__dirname, "static")));
 
 let Item = require("./db/Item");
+
+app.get("/", (req, res) => {
+	Item.findAll({}, (err, items) => {
+		return res.render("index", { items });
+	});
+});
 
 app.get("/items", (req, res) => {
 	Item.find({}, (err, items) => {
