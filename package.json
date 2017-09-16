@@ -20,6 +20,7 @@
   "homepage": "https://github.com/dannycho7/hackthenorth#readme",
   "dependencies": {
     "bluebird": "^3.5.0",
+    "ejs": "^2.5.7",
     "express": "^4.15.4",
     "mongoose": "^4.11.11"
   }

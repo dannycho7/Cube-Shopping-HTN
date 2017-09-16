@@ -30,8 +30,9 @@
       <a-sky color="#ECECEC"></a-sky>
     </a-scene>
     
-    <script>    
-      <% items.forEach(function(item, i){
+    <script>
+      let items = <%- JSON.stringify(locals.items) || [] %>
+      items.forEach(function(item, i){
         var sceneEl = document.querySelector('a-scene');
         var entityEl = document.createElement('a-box');
         entityEl.setAttribute("width", "0.5");
@@ -42,8 +43,8 @@
         entityEl.setAttribute("position", position);
         sceneEl.appendChild(entityEl);
         console.log(i + ": " + position);
-      }); %>
-        
+      });
+      
       function getPositionString(positionNumber, levelHeight, numPositions, radius) {
         var level = parseInt(positionNumber / numPositions);
         var place = (positionNumber - 1) % numPositions;
