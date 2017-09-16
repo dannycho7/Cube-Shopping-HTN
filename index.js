@@ -28,7 +28,7 @@ app.get("/callback", (req, res) => {
 		case "error": {
 			return res.send(`Error in transaction ${callback_data["error_code"]}`)
 		}
-		case "success": {
+		case "ok": {
 			return res.send("Success!");
 		}
 		default: {
