@@ -10,6 +10,9 @@ class VRScene extends React.Component {
   render () {
     return (
       <Scene>
+        <a-assets>
+          <img id="my-texture" src="texture.png" />
+        </a-assets>
         <a-entity camera="userHeight: 1.6" look-controls>
           <a-entity
             cursor="fuse: true; fuseTimeout: 500;"
