@@ -1,18 +1,66 @@
-<script>
-  function buyItem(price) {
-    var dataParameter = {
-      "amount_money": {
-        "amount" : price.toString(),
-        "currency_code" : "USD"
-      },
-      "callback_url" : "https://932167e4.ngrok.io/callback",
-      "client_id" : "sq0idp-EPHo2mTlyHm_-Mm1ePY17g",
-      "version": "1.3",
-      "notes": "notes for the transaction",
-      "options" : {
-        "supported_tender_types" : ["CREDIT_CARD","CASH","OTHER","SQUARE_GIFT_CARD","CARD_ON_FILE"]
-      }
-    };
-    window.location = "square-commerce-v1://payment/create?data=" + encodeURIComponent(JSON.stringify(dataParameter));
-  }
-</script>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Most Basic Super-Hands Example</title>
+  <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
+  <script>
+    function buyItem(price) {
+      var dataParameter = {
+        "amount_money": {
+          "amount" : price.toString(),
+          "currency_code" : "USD"
+        },
+        "callback_url" : "https://932167e4.ngrok.io/callback",
+        "client_id" : "sq0idp-EPHo2mTlyHm_-Mm1ePY17g",
+        "version": "1.3",
+        "notes": "notes for the transaction",
+        "options" : {
+          "supported_tender_types" : ["CREDIT_CARD","CASH","OTHER","SQUARE_GIFT_CARD","CARD_ON_FILE"]
+        }
+      };
+      window.location = "square-commerce-v1://payment/create?data=" + encodeURIComponent(JSON.stringify(dataParameter));
+    }
+  </script>
+</head>
+
+<body>
+  <a-scene>
+    <a-assets></a-assets>
+    <a-entity camera="userHeight: 1.6" look-controls></a-entity>
+    <a-circle color="#CCC" radius="3" rotation="-90 0 0"></a-circle>
+    <a-sky color="#ECECEC"></a-sky>
+  </a-scene>
+  
+  <script>
+    var items = [{"name": "t-shirt 1", "id": 1, "price": 10.00, "description": "An awesome tshirt", "model-url":"", "item-type": "t-shirt"},
+                  {"name": "t-shirt 2", "id": 2, "price": 10.00, "description": "An awesome tshirt", "model-url":"",  "item-type": "t-shirt"},
+                  {"name": "t-shirt 3", "id": 3, "price": 10.00, "description": "An awesome tshirt", "model-url":"",  "item-type": "t-shirt"},
+                  {"name": "t-shirt 4", "id": 4, "price": 10.00, "description": "An awesome tshirt", "model-url":"",  "item-type": "t-shirt"},
+                  {"name": "t-shirt 5", "id": 5, "price": 10.00, "description": "An awesome tshirt", "model-url":"",  "item-type": "t-shirt"},
+                  {"name": "pants 1", "id": 6, "price": 10.00, "description": "An awesome tshirt", "model-url":"",  "item-type": "pants"},
+                  {"name": "pants 2", "id": 7, "price": 10.00, "description": "An awesome tshirt", "model-url":"",  "item-type": "pants"},
+                  {"name": "pants 3", "id": 8, "price": 10.00, "description": "An awesome tshirt", "model-url":"",  "item-type": "pants"},
+                  {"name": "pants 4", "id": 9, "price": 10.00, "description": "An awesome tshirt", "model-url":"", "item-type": "pants"},
+                  {"name": "pants 5", "id": 10, "price": 10.00, "description": "An awesome tshirt", "model-url":"", "item-type": "pants"}];
+    
+    items.forEach(function(item, i){
+      var sceneEl = document.querySelector('a-scene');
+      var entityEl = document.createElement('a-box');
+      entityEl.setAttribute("width", "0.5");
+      entityEl.setAttribute("height", "0.5");
+      entityEl.setAttribute("depth", "0.5");
+      entityEl.setAttribute("color", "tomato");
+      var position = getPositionString(i + 1, 2, 6, 2);
+      entityEl.setAttribute("position", position);
+      sceneEl.appendChild(entityEl);
+      console.log(i + ": " + position);
+    });
+      
+    function getPositionString(positionNumber, levelHeight, numPositions, radius) {
+      var level = parseInt(positionNumber / numPositions);
+      var place = (positionNumber - 1) % numPositions;
+      return radius * Math.cos(place * 2 * Math.PI/numPositions) + " " + level * levelHeight + " " + radius * Math.sin(place * 2 * Math.PI / numPositions);
+    }
+  </script>
+</body>
+</html>
