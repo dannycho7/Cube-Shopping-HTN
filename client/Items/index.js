@@ -34,7 +34,7 @@ class Items extends React.Component {
 	render() {
 		const { inventory } = this.state;
 		let inventory_component = inventory.map((item, index) => {
-			return <Item {...item} position={getPositionString(index + 1, 2, 6, 2)}/>
+			return <Item {...item} position={getPositionString(index + 1, 2, 6, 2)} key={index} />
 		});
 
 		return <Entity>{inventory_component}</Entity>
