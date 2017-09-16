@@ -3,6 +3,7 @@
 <head>
   <title>VR WebStore</title>
   <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
+  <script src="https://rawgit.com/caseyyee/aframe-ui-widgets/master/dist/ui-widgets.min.js"></script>
 </head>
 
 <body>
@@ -21,7 +22,7 @@
       entityEl.setAttribute("height", "0.5");
       entityEl.setAttribute("depth", "0.5");
       entityEl.setAttribute("color", "tomato");
-      var position = getPositionString(i + 1, 2, 6, 2);
+      var position = getPositionString(i + 1, 2, 5, 2);
       entityEl.setAttribute("position", position);
       sceneEl.appendChild(entityEl);
       console.log(i + ": " + position);
