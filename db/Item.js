@@ -17,6 +17,9 @@ var itemSchema = new Schema({
 	modelUrl: {
 		type: String,
 		required: true
+	},
+	"itemType": {
+		type: String
 	}
 });
 
