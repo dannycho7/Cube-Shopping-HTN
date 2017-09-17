@@ -18,6 +18,8 @@ class VRScene extends React.Component {
             position ="0 0 -1"
             scale="0.02 0.02 0.02"
           />
+          <a-entity oculus-touch-controls="hand: left"></a-entity>
+          <a-entity oculus-touch-controls="hand: right"></a-entity>
           
           <ShoppingCart />
         </a-entity>
