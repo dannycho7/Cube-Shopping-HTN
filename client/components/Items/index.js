@@ -50,6 +50,12 @@ class Items extends React.Component {
 			);
 		});
 
+		itemCount = {
+			shirts: 0,
+			pants: 0,
+			shoes:  0
+		} 
+
 		return <Entity>{inventory_component}</Entity>
 	}
 }
