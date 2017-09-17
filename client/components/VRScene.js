@@ -9,7 +9,7 @@ import SquareCheckout from "./SquareCheckout";
 class VRScene extends React.Component {
   render () {
     return (
-      <Scene>      
+      <a-entity>
         <a-entity camera="userHeight: 1.6" look-controls>
           <a-entity
             cursor="fuse: true; fuseTimeout: 500;"
@@ -31,7 +31,7 @@ class VRScene extends React.Component {
         />
         <a-sky color="#ECECEC" />
         <Items />
-      </Scene>
+      </a-entity>
     );
   }
 }
