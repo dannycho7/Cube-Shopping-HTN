@@ -38,12 +38,10 @@ class VRScene extends React.Component {
           <ShoppingCart />
         </a-entity>
 
-        <a-entity>
           <a-entity
-            geometry="width=2; height=auto; primitive: plane; position: 0 1.2 -3"
+            geometry="width=2; height=auto; primitive: plane; position: 0 2.2 -3; rotation: 0 0 90"
             material="color: blue;"
           />
-        </a-entity>
         <a-circle
           color="#CCC"
           radius="3"

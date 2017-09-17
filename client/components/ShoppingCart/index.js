@@ -10,7 +10,7 @@ const ShoppingCart = ({ cart, inventory }) => {
 	let y_pos = 0.4;
 	let getPosition = () => {
 		y_pos -= 0.1;
-		return `-0.6 ${y_pos} -0.5`;
+		return `-0.3 ${y_pos} -0.5`;
 	}
 	let items_in_cart = Object.keys(cart).filter(item_id => cart[item_id] === true)
 	return (

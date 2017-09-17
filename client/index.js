@@ -14,4 +14,4 @@ ReactDOM.render(
 	<Provider store={store}>
 		<VRScene />
 	</Provider>,
-document.querySelector('#sceneContainer'));
+document.querySelector('body'));
