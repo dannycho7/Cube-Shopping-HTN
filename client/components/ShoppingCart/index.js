@@ -6,7 +6,7 @@ import ShoppingCartItem from "./presenters/ShoppingCartItem";
 import ShoppingCartTotal from "./presenters/ShoppingCartTotal";
 import ShoppingCartEmptyMessage from "./presenters/ShoppingCartEmptyMessage";
 
-const ShoppingCart = ({ cart, inventory }) => {
+const ShoppingCart = ({ cart, inventory, total }) => {
 	let y_pos = 0.4;
 	let getPosition = () => {
 		y_pos -= 0.1;
@@ -21,8 +21,7 @@ const ShoppingCart = ({ cart, inventory }) => {
 				return <ShoppingCartItem key={cart_item_id} {...cart_item} position={getPosition()} />
 			}) || <ShoppingCartEmptyMessage position={getPosition()}/>}
 			<ShoppingCartTotal
-				items_in_cart={items_in_cart}
-				inventory={inventory}
+				total={total}
 				position={getPosition()}
 			/>
 			</a-entity>

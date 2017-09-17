@@ -1,10 +1,6 @@
 import React from "react";
 
-const ShoppingCartTotal = ({ inventory, items_in_cart, position }) => {
-	let total = 0;
-	items_in_cart.forEach(item_in_cart_id => {
-		total += inventory[item_in_cart_id]["price"];
-	});
+const ShoppingCartTotal = ({ total, position }) => {
 	return (
 		<a-entity
 			text={`value: Total: $${total}; color: black; anchor: left; wrapCount: 80` }
