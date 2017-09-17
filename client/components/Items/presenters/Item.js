@@ -1,11 +1,10 @@
 import React from "react";
 import { Entity, Scene } from "aframe-react";
 
-const Item = ({ price, name, position, onMousedown, inCart }) => {
+const Item = ({ price, name, modelUrl, position, onMousedown, inCart }) => {
 	return (
 		<Entity
-			geometry={{ primitive: "box", width: 0.5, height: 0.5, depth: 0.5 }}
-			material={{ color: inCart ? "blue" : "tomato" }}
+			obj-model={`obj: url(models/${modelUrl}.obj); mtl: url(models/${modelUrl}.mtl)`}
 			events={{ mousedown: onMousedown }}
 			position={position}
 		/>

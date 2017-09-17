@@ -1,5 +1,3 @@
-import 'aframe';
-import 'aframe-particle-system-component';
 import { Entity, Scene } from 'aframe-react';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -39,7 +37,6 @@ class VRScene extends React.Component {
           
           <ShoppingCart />
         </a-entity>
-        <a-entity position="0 3 -3" obj-model="obj: url(models/shirt_white.obj); mtl: url(models/shirt_white.mtl)"></a-entity>
 
         <a-entity>
           <a-entity
