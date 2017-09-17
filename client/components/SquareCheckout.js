@@ -8,10 +8,10 @@ function buyItem(price) {
       "amount" : price,
       "currency_code" : "USD"
     },
-    "callback_url" : "https://813a9928.ngrok.io/callback",
+    "callback_url" : "https://d45a9d15.ngrok.io/callback",
     "client_id" : "sq0idp-EPHo2mTlyHm_-Mm1ePY17g",
     "version": "1.3",
-    "notes": "notes for the transaction",
+    "notes": "Sample",
     "options" : {
       "supported_tender_types" : ["CREDIT_CARD", "CASH", "OTHER", "SQUARE_GIFT_CARD", "CARD_ON_FILE"]
     }
