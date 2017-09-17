@@ -1,7 +1,10 @@
 import React from "react";
-import Item from "./presenters/Item";
-
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
 import { Entity } from "aframe-react";
+
+import Item from "./presenters/Item";
+import { grabItems, toggleItem } from "../../actions/itemActions";
 
 function getPositionString(positionNumber, levelHeight, numPositions, radius) {
 	var level = parseInt(positionNumber / numPositions);
@@ -9,45 +12,19 @@ function getPositionString(positionNumber, levelHeight, numPositions, radius) {
 	return radius * Math.cos(place * 2 * Math.PI/numPositions) + " " + level * levelHeight + " " + radius * Math.sin(place * 2 * Math.PI / numPositions);
 };
 
-function turnArrayIndicesIntoObject(arr) {
-	let obj = {}
-	for(let i = 0; i < arr.length; i++) {
-		obj[i] = false;
-	}
-	return obj;
-}
 
 class Items extends React.Component {
-	constructor() {
-		super();
-
-		this.state = {
-			inventory: [],
-			cart: {}
-		}
-	}
-
 	componentDidMount() {
-		var xhttp = new XMLHttpRequest();
-
-		xhttp.addEventListener("load", () => {
-			let inventory = JSON.parse(xhttp.responseText);
-			let initialCart = turnArrayIndicesIntoObject(inventory);
-			this.setState({ inventory, cart: initialCart });
-		});
-
-		xhttp.open("GET", "/items");
-		xhttp.send();
+		this.props.grabItems();
 	}
-
 	render() {
-		const { inventory, cart } = this.state;
+		const { inventory, cart } = this.props;
 		let inventory_component = inventory.map((item, index) => {
 			return (
 				<Item
 					{...item}
 					position={getPositionString(index + 1, 2, 6, 2)}
-					onMousedown={() => this.setState({ cart: Object.assign({}, cart, { [index]: !cart[index] }) })}
+					onMousedown={() => this.props.toggleItem(index)}
 					inCart={cart[index]}
 					key={index}
 				/>
@@ -58,4 +35,16 @@ class Items extends React.Component {
 	}
 }
 
-export default Items;
+const mapStateToProps = (state) => {
+	const { item } = state;
+	return item;
+};
+
+const mapDispatchToProps = (dispatch) => {
+	return bindActionCreators({
+		toggleItem,
+		grabItems
+	}, dispatch);
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Items);

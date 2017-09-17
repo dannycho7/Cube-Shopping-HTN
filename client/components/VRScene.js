@@ -5,6 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import Items from "./Items";
+import ShoppingCart from "./ShoppingCart";
 
 function buyItem(price) {
   var dataParameter = {
@@ -40,7 +41,8 @@ class VRScene extends React.Component {
             position ="0 0 -1"
             scale="0.02 0.02 0.02"
           />
-          <a-entity text="value: Your shopping cart; color: black; anchor: align;" position="0.3 0 -0.5"></a-entity>
+          
+          <ShoppingCart />
         </a-entity>
 
         <a-circle
@@ -55,4 +57,4 @@ class VRScene extends React.Component {
   }
 }
 
-ReactDOM.render(<VRScene/>, document.querySelector('#sceneContainer'));
+export default VRScene;
