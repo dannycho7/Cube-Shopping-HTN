@@ -8,7 +8,7 @@ import ShoppingCartEmptyMessage from "./presenters/ShoppingCartEmptyMessage";
 import ShoppingCartCurrentItemDescription from "./presenters/ShoppingCartCurrentItemDescription";
 
 const ShoppingCart = ({ cart, inventory, total, currentItem }) => {
-	let y_pos = 0.4;
+	let y_pos = 0.35;
 	let getPosition = (x_shift = 0) => {
 		y_pos -= 0.1;
 		return `${-0.3 + x_shift} ${y_pos} -0.5`;
