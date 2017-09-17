@@ -24,9 +24,10 @@ class VRScene extends React.Component {
 
         <SquareCheckout />
 
-        <a-circle
-          color="#CCC"
-          radius="3"
+        <a-plane
+          src="url(/textures/parquet-texture-floor-texture.jpg)"
+          width="10"
+          height="10"
           rotation="-90 0 0"
         />
         <a-sky color="#ECECEC" />

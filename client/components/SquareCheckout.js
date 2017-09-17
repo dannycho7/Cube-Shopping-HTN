@@ -23,7 +23,7 @@ const SquareCheckout = ({ total }) => {
   return (
     <Entity
       geometry="primitive: plane; width: 4; height: 0.8; align: center;"
-      position="0 0 -5"
+      position="0 2.5 -5"
       material="color: #008B8B"
       text="value: Proceed to checkout.; align: center;"
       events={{ mousedown: () => {            
