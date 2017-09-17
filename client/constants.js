@@ -1,2 +1,3 @@
 export const ITEM_FETCH_SUCCESS = "ITEM_FETCH_SUCCESS";
 export const TOGGLE_ITEM = "TOGGLE_ITEM";
+export const TOGGLE_CURRENT = "TOGGLE_CURRENT";

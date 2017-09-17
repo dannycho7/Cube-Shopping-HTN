@@ -23,3 +23,10 @@ module.exports.toggleItem = (index) => {
 		payload: index
 	};
 };
+
+module.exports.toggleCurrent = (index = null) => {
+	return {
+		type: actionTypes.TOGGLE_CURRENT,
+		payload: index
+	};
+};

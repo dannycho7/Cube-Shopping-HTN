@@ -4,7 +4,7 @@ import { bindActionCreators } from "redux";
 import { Entity } from "aframe-react";
 
 import Item from "./presenters/Item";
-import { grabItems, toggleItem } from "../../actions/itemActions";
+import { grabItems, toggleItem, toggleCurrent } from "../../actions/itemActions";
 
 var itemCount = {
 	shirts: 0,
@@ -68,6 +68,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	return bindActionCreators({
 		toggleItem,
+		toggleCurrent,
 		grabItems
 	}, dispatch);
 };

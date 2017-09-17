@@ -3,7 +3,8 @@ import * as actionTypes from "../constants";
 const initialState = {
 	inventory: [],
 	cart: {},
-	total: 0
+	total: 0,
+	currentItem: null
 };
 
 function turnArrayIndicesIntoObject(arr) {
@@ -37,6 +38,10 @@ const itemReducer = (state = initialState, action) => {
 			let updatedCart = { ...cart, [payload]: !cart[payload] };
 			let total = calculateTotal(updatedCart, inventory);
 			return { ...state, cart: updatedCart, total };
+		}
+		case actionTypes.TOGGLE_CURRENT: {
+			const { payload } = action;
+			return { ...state, currentItem: payload };
 		}
 		default:
 			return state;
