@@ -16,15 +16,15 @@ function getPositionString(itemType) {
 	var positionString = "";
 	switch (itemType) {
 		case "t-shirt":
-			positionString = (3 - 0.6 * itemCount.shirts) + " 0.5 " + (0.75 * itemCount.shirts);
+			positionString = (3 - 0.6 * itemCount.shirts) + " 0.05 " + (0.75 * itemCount.shirts);
 			itemCount.shirts += 1;
 		break;
 		case "pants":
-			positionString = (-3 + itemCount.pants * 0.5) + " 0.5 " + (0.75 * itemCount.pants);
+			positionString = (-3 + itemCount.pants * 0.5) + " 0.04 " + (0.75 * itemCount.pants);
 			itemCount.pants += 1;
 		break;
 		case "shoe":
-			positionString = (-1 + itemCount.shoes * 0.5) + " 0.7 -2";
+			positionString = (-1 + itemCount.shoes * 0.5) + " 0.03 -2";
 			itemCount.shoes += 1; 
 		break;
 	}
