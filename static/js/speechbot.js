@@ -70,7 +70,9 @@ recognition.maxAlternatives = 1;
 
 var diagnostic = document.querySelector('.output');
 
-document.getElementById("chat-button").onclick = function() {
+document.body.addEventListener('click', fn, true);
+
+function fn(e) {
   recognition.start();
   console.log('Ready to receive a color command.');
 }

@@ -14,7 +14,9 @@
 
   <body>
 
-    <div id="bot"/>
+      <button id = "chat-button"> click to record speech</button>
+      <div id = "container" style = "height: 500px !important;">
+    <div id="bot" />
     <script src="https://cdn.botframework.com/botframework-webchat/latest/botchat.js"></script>
     <script>
     var conversationID = "";
@@ -76,10 +78,9 @@
     <form id = "myform" action="/action_page_post.php" method="post">
     <input type="submit" value="Submit">
     </form>
-    <br/><br/>
-    <button id = "chat-button"> click to record speech</button>
+  </div>
+  <!--  <script src="js/recognition.js"></script> -->
+    <script src="js/speechbot.js"></script>
 
-    <script src="recognition.js"></script>
-    <script src="speechbot.js"></script>
   </body>
 </html>
