@@ -1,11 +1,15 @@
 import React from "react";
 import { Entity, Scene } from "aframe-react";
 
-const Item = ({ price, name, modelUrl, position, onMousedown, inCart }) => {
+const Item = ({ price, name, modelUrl, position, onMousedown, onMouseenter, onMouseleave, inCart }) => {
 	return (
 		<Entity
 			obj-model={`obj: #${modelUrl}.obj; mtl: #${modelUrl}.mtl`}
-			events={{ mousedown: onMousedown }}
+			events={{
+				mousedown: onMousedown,
+				mouseenter: onMouseenter,
+				mouseleave: onMouseleave
+			}}
 			position={position}
 		>
 			<a-animation

@@ -33,6 +33,16 @@ function getPositionString(itemType) {
 
 
 class Items extends React.Component {
+	shouldComponentUpdate(nextProps) {
+		let should = false;
+		const { inventory } = this.props;
+		nextProps.inventory.forEach((inventory_item, index) => {
+			if(inventory[index] !== inventory_item) {
+				should = true;
+			}
+		});
+		return should;
+	}
 	componentDidMount() {
 		this.props.grabItems();
 	}
@@ -44,6 +54,8 @@ class Items extends React.Component {
 					{...item}
 					position={getPositionString(item.itemType)}
 					onMousedown={() => this.props.toggleItem(index)}
+					onMouseenter={() => this.props.toggleCurrent(index)}
+					onMouseleave={() => this.props.toggleCurrent()}
 					inCart={cart[index]}
 					key={index}
 				/>
