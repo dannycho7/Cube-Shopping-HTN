@@ -17,6 +17,13 @@ app.use(express.static(path.join(__dirname, "static")));
 
 let Item = require("./db/Item");
 
+app.get("/", (req, res) => {
+	Item.find({}, (err, items) => {
+		if(err) throw err;
+		return res.render("index", { items });
+	});
+});
+
 app.get("/items", (req, res) => {
 	Item.find({}, (err, items) => {
 		if(err) throw err;

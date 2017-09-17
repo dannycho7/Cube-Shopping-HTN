@@ -14,4 +14,4 @@ ReactDOM.render(
 	<Provider store={store}>
 		<VRScene />
 	</Provider>,
-document.querySelector('a-scene'));
+document.querySelector("a-scene a-entity#mount"));

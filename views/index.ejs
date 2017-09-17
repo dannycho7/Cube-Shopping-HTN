@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>VR WebStore</title>
+    <script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
+  </head>
+  <body>
+  	<a-scene>
+  		<a-assets>
+        <% locals.items.forEach(item => { %>
+          <a-asset-item src="/models/<%- item.modelUrl %>.obj" id="<%- item.modelUrl %>.obj" />
+          <a-asset-item src="/models/<%- item.modelUrl %>.mtl" id="<%- item.modelUrl %>.mtl" />
+        <% }) %>
+      </a-assets>
+    	<a-entity id="mount"></a-entity>
+    </a-scene>
+  </body>
+  <script src="/bundle.js"></script>
+  <script src="https://rawgit.com/IdeaSpaceVR/aframe-ui-modal-component/master/dist/aframe-ui-modal-component.min.js"></script>
+</html>

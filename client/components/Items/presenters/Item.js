@@ -4,7 +4,7 @@ import { Entity, Scene } from "aframe-react";
 const Item = ({ price, name, modelUrl, position, onMousedown, inCart }) => {
 	return (
 		<Entity
-			obj-model={`obj: url(models/${modelUrl}.obj); mtl: url(models/${modelUrl}.mtl)`}
+			obj-model={`obj: #${modelUrl}.obj; mtl: #${modelUrl}.mtl`}
 			events={{ mousedown: onMousedown }}
 			position={position}
 		>
