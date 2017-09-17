@@ -10,7 +10,7 @@ class VRScene extends React.Component {
   render () {
     return (
       <a-entity>
-        <a-entity camera="userHeight: 1.6" look-controls>
+        <a-entity camera="userHeight: 1.6" look-controls wasd-controls>
           <a-entity
             cursor="fuse: true; fuseTimeout: 500;"
             geometry="primitive: ring"
