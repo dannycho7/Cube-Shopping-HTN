@@ -8,7 +8,8 @@ const Item = ({ price, name, modelUrl, position, onMousedown, onMouseenter, onMo
 			events={{
 				mousedown: onMousedown,
 				mouseenter: onMouseenter,
-				mouseleave: onMouseleave
+				mouseleave: onMouseleave,
+				triggerdown: onMousedown
 			}}
 			position={position}
 		>
