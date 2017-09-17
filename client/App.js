@@ -40,7 +40,9 @@ class VRScene extends React.Component {
             position ="0 0 -1"
             scale="0.02 0.02 0.02"
           />
+          <a-entity text="value: Your shopping cart; color: black; anchor: align;" position="0.3 0 -0.5"></a-entity>
         </a-entity>
+
         <a-circle
           color="#CCC"
           radius="3"
