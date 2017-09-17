@@ -27,12 +27,7 @@ function buyItem(price) {
 class VRScene extends React.Component {
   render () {
     return (
-      <Scene>
-        <a-assets>
-          <a-asset-item id="pants-obj" src="/models/pants.obj"></a-asset-item>
-          <a-asset-item id="pants-mtl" src="/models/pants.mtl"></a-asset-item>
-        </a-assets>
-        
+      <Scene>      
         <a-entity camera="userHeight: 1.6" look-controls>
           <a-entity
             cursor="fuse: true; fuseTimeout: 500;"
@@ -44,7 +39,7 @@ class VRScene extends React.Component {
           
           <ShoppingCart />
         </a-entity>
-
+        <a-entity position="0 3 -3" obj-model="obj: url(models/shoes_brown.obj); mtl: url(models/shoes_brown.mtl)"></a-entity>
         <a-circle
           color="#CCC"
           radius="3"
