@@ -39,7 +39,14 @@ class VRScene extends React.Component {
           
           <ShoppingCart />
         </a-entity>
-        <a-entity position="0 3 -3" obj-model="obj: url(models/shoes_brown.obj); mtl: url(models/shoes_brown.mtl)"></a-entity>
+        <a-entity position="0 3 -3" obj-model="obj: url(models/shirt_white.obj); mtl: url(models/shirt_white.mtl)"></a-entity>
+
+        <a-entity>
+          <a-entity
+            geometry="width=2; height=auto; primitive: plane; position: 0 1.2 -3"
+            material="color: blue;"
+          />
+        </a-entity>
         <a-circle
           color="#CCC"
           radius="3"
