@@ -7,8 +7,8 @@ import Item from "./presenters/Item";
 import { grabItems, toggleItem } from "../../actions/itemActions";
 
 function getPositionString(positionNumber, levelHeight, numPositions, radius) {
-	var level = parseInt(positionNumber / numPositions);
-	var place = (positionNumber - 1) % numPositions;
+	var level = Math.floor(positionNumber / numPositions);
+	var place = positionNumber  % numPositions;
 	return radius * Math.cos(place * 2 * Math.PI/numPositions) + " " + level * levelHeight + " " + radius * Math.sin(place * 2 * Math.PI / numPositions);
 };
 
@@ -23,7 +23,7 @@ class Items extends React.Component {
 			return (
 				<Item
 					{...item}
-					position={getPositionString(index + 1, 2, 6, 2)}
+					position={getPositionString(index , 2, 5, 2)}
 					onMousedown={() => this.props.toggleItem(index)}
 					inCart={cart[index]}
 					key={index}

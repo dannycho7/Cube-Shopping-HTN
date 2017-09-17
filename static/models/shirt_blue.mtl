@@ -1,8 +1,8 @@
-# Blender MTL File: 'None'
+# Blender MTL File: 'shoes.blend'
 # Material Count: 1
 
-newmtl 22_GOREPORT_1_20_30
-Ns 94.117647
+newmtl 22_GOREPORT_1_20_30.005
+Ns 92.156863
 Ka 1.000000 1.000000 1.000000
 Kd 0.057824 0.581329 0.815681
 Ks 0.038514 0.038514 0.038514
