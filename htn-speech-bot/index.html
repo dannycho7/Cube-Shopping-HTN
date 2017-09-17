@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Text to Speech to Text Chat Bot</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.botframework.com/botframework-webchat/latest/botchat.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+
+    <div id="bot"/>
+    <script src="https://cdn.botframework.com/botframework-webchat/latest/botchat.js"></script>
+    <script>
+    var conversationID = "";
+    var postURL = "";
+
+    $(document).ready(function() {
+      var textField = document.querySelector('.wc-shellinput');
+      textField.value = "hi";
+      var consoleTrackingText = document.querySelector('.wc-console');
+      consoleTrackingText.className = "wc-console has-text";
+
+      // there are two buttons listening for clicks, so let's try both
+      var sendButton = document.querySelector('.wc-send');
+      var sendButton2 = document.querySelector('.wc-mic');
+      setTimeout(function(){
+        $(textField).change();
+        $(textField).focus();
+        $(textField).keypress();
+         sendButton.click();
+         sendButton2.click();
+      }, 50);
+    });
+
+    // changes after conversationID has been found, after first message has been sent
+    var conversationIDFound = false;
+
+    BotChat.App({
+      directLine: { secret: "OuA557EY2Hc.cwA.fFo.uVouPY9KoecByRwlLTF5rK3trbnpIDXgWw65Uck3Gdw" },
+      user: { id: 'userid' },
+      bot: { id: 'botid' },
+      resize: 'detect'
+    }, document.getElementById("bot"));
+
+    function checkDOM() {
+      var text = "";
+      var nodes = document.querySelectorAll('p');
+      var last = nodes[nodes.length-1].innerText;
+
+      if (textToSay != last) {
+        // If it detects that the bot has responded, it will say the new text
+        textToSay = "";
+        textToSay+= last;
+        sayText();
+
+        // This handles the collection of the conversationID
+        if (!conversationIDFound) {
+            var idHolder = document.querySelector(".wc-message-wrapper").getAttribute("data-activity-id");
+            conversationID += idHolder.substring(0,idHolder.length-8);
+            postURL += "https://directline.botframework.com/v3/directline/conversations/" + conversationID + "/activities";
+            console.log(postURL);
+            conversationIDFound = true;
+        }
+      }
+
+      counter++;
+    }
+    </script>
+
+    <form id = "myform" action="/action_page_post.php" method="post">
+    <input type="submit" value="Submit">
+    </form>
+    <br/><br/>
+    <button id = "chat-button"> click to record speech</button>
+    <!--<h1 class="output"></h1>-->
+
+    <script src="recognition.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
