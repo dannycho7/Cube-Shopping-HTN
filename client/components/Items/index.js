@@ -6,10 +6,29 @@ import { Entity } from "aframe-react";
 import Item from "./presenters/Item";
 import { grabItems, toggleItem } from "../../actions/itemActions";
 
-function getPositionString(positionNumber, levelHeight, numPositions, radius) {
-	var level = Math.floor(positionNumber / numPositions);
-	var place = positionNumber  % numPositions;
-	return radius * Math.cos(place * 2 * Math.PI/numPositions) + " " + level * levelHeight + " " + radius * Math.sin(place * 2 * Math.PI / numPositions);
+var itemCount = {
+	shirts: 0,
+	pants: 0,
+	shoes:  0
+};
+
+function getPositionString(itemType) {
+	var positionString = "";
+	switch (itemType) {
+		case "t-shirt":
+			positionString = (3 - 0.6 * itemCount.shirts) + " 1 " + (0.75 * itemCount.shirts);
+			itemCount.shirts += 1;
+		break;
+		case "pants":
+			positionString = (-3 + itemCount.pants * 0.5) + " 0.5 " + (0.75 * itemCount.pants);
+			itemCount.pants += 1;
+		break;
+		case "shoe":
+			positionString = (-1 + itemCount.shoes * 0.5) + " 1.5 -2";
+			itemCount.shoes += 1; 
+		break;
+	}
+	return positionString;
 };
 
 
@@ -23,7 +42,7 @@ class Items extends React.Component {
 			return (
 				<Item
 					{...item}
-					position={getPositionString(index , 2, 5, 2)}
+					position={getPositionString(item.itemType)}
 					onMousedown={() => this.props.toggleItem(index)}
 					inCart={cart[index]}
 					key={index}
