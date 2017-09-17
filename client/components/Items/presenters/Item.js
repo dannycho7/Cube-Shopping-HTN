@@ -17,6 +17,7 @@ const Item = ({ price, name, modelUrl, position, onMousedown, inCart }) => {
             	to="0 360 0"
             	repeat="indefinite"
             />
+			<a-image src="url(images/shadow.png)" rotation="-90 0 0" scale="0.5 0.5 0.5"></a-image>
         </Entity>
 			
 	);

@@ -46,9 +46,7 @@ class Items extends React.Component {
 					onMousedown={() => this.props.toggleItem(index)}
 					inCart={cart[index]}
 					key={index}
-				>
-					<a-image src="url(images/shadow.png)" rotation="-90 0 0" scale="0.5 0.5 0.5"></a-image>
-				</Item>
+				/>
 			);
 		});
 
